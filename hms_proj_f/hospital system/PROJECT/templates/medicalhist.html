@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+medicalhist
+{% endblock title %}
+
+{% block body %}
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">PID</th>
+        <th scope="col">TESTNAME</th>
+        <th scope="col">MEDICATIONS</th>
+        <th scope="col">DISEASE</th>
+        <th scope="col">SURGERIES</th>
+        
+  
+      </tr>
+    </thead>
+    <tbody>
+        {% for post in query %}
+    <tr>
+      <th scope="row">{{post.pid}}</th>
+      <td>{{post.testname}}</td>
+      <td>{{post.medications}}</td>
+      <td>{{post.disease}}</td>
+      <td>{{post.surgeries}}</td>
+      {% endfor %}
+  
+  </tbody>
+</table>
+
+
+{% endblock body %}

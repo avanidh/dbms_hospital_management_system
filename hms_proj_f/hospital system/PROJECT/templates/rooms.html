@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+rooms
+{% endblock title %}
+
+{% block body %}
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ROOM NO.</th>
+        <th scope="col">ROOM TYPE</th>
+        <th scope="col">ROOM COST</th>
+        
+  
+      </tr>
+    </thead>
+    <tbody>
+        {% for post in query %}
+    <tr>
+      <th scope="row">{{post.Roomno}}</th>
+      <td>{{post.Roomtype}}</td>
+      <td>{{post.Roomcost}}</td>
+      
+      {% endfor %}
+  
+  </tbody>
+</table>
+
+
+{% endblock body %}
