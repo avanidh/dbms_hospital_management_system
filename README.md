@@ -1,0 +1,1 @@
+This project aims to develop a robust and efficient Hospital Management System using Database Management System (DBMS). The system is designed for various administrative and operational tasks within a hospital, including patient management, appointment scheduling, staff management and billing.
